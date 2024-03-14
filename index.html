@@ -92,14 +92,6 @@
 
     /*Cat elem*/
     cat = document.getElementById("p")
-
-    /*Pop mp3s*/
-    pops = [
-        "pops/pop1.mp3",
-        "pops/pop2.mp3",
-        "pops/pop3.mp3",
-        "pops/pop4.mp3",
-    ]
     pop_i = 0
 
     /*Cookie utils*/
@@ -122,11 +114,7 @@
         var d = new Date();
         d.setTime(d.getTime() + (exdays*24*60*60*1000));
         var expires = "expires="+ d.toUTCString();
-        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
     }
-
-    pop_count = getCookie("pop_count")
-    cat.innerHTML = pop_count > 0 ? pop_count : ""
 
     op_func = function(){
         /*Chance cat image to op.jpg via css*/
@@ -141,7 +129,6 @@
         pop_i = (pop_i+1)%pops.length
 
         /*Increment pop count*/
-        pop_count++
         cat.innerHTML = pop_count
         setCookie("pop_count",pop_count,365)
 
